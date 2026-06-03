@@ -1,8 +1,11 @@
 package com.akash.springboothello.model;
+import jakarta.persistence.*;
 
+@Entity
 public class Employee {
-
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     public void setName(String name) {
         this.name = name;
@@ -18,13 +21,12 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int id, String name, String department) {
-        this.id = id;
+    public Employee(String name, String department) {
         this.name = name;
         this.department = department;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

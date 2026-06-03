@@ -28,7 +28,7 @@ public class EmployeeController {
             @RequestBody EmployeeRequest request) {
 
         Employee employee = new Employee(
-                employeeService.getEmployees().size() + 1,
+
                 request.getName(),
                 request.getDepartment());
 
@@ -40,7 +40,7 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Employee> getEmployeeById(
-            @PathVariable int id) {
+            @PathVariable Long id) {
 
         Employee employee =
                 employeeService.getEmployeeById(id);
@@ -54,7 +54,7 @@ public class EmployeeController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteEmployee(
-            @PathVariable int id) {
+            @PathVariable Long id) {
 
         boolean deleted = employeeService.deleteEmployee(id);
 
@@ -67,7 +67,7 @@ public class EmployeeController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Employee> updateEmployee(
-            @PathVariable int id,
+            @PathVariable Long id,
             @RequestBody EmployeeRequest request) {
 
         Employee employee =
