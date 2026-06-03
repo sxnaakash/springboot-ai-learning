@@ -1,6 +1,7 @@
 package com.akash.springboothello.service;
 
 import com.akash.springboothello.dto.EmployeeRequest;
+import com.akash.springboothello.exception.EmployeeNotFoundException;
 import com.akash.springboothello.model.Employee;
 import com.akash.springboothello.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,9 @@ public class EmployeeService {
     public Employee  getEmployeeById(Long id) {
 
         return repository.findById(id)
-                .orElse(null);
+                .orElseThrow(() ->
+                        new EmployeeNotFoundException(
+                                "Employee not found with id: " + id));
     }
 
     public boolean deleteEmployee(Long id) {

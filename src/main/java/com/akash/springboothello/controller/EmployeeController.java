@@ -2,6 +2,7 @@ package com.akash.springboothello.controller;
 
 import com.akash.springboothello.model.Employee;
 import com.akash.springboothello.service.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import com.akash.springboothello.dto.EmployeeRequest;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class EmployeeController {
 
     @PostMapping
     public ResponseEntity<Employee> addEmployee(
-            @RequestBody EmployeeRequest request) {
+           @Valid @RequestBody EmployeeRequest request) {
 
         Employee employee = new Employee(
 

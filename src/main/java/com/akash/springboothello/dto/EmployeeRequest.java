@@ -1,8 +1,12 @@
 package com.akash.springboothello.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class EmployeeRequest {
 
+    @NotBlank(message = "Name is required")
     private String name;
+    @NotBlank(message = "Department is required")
     private String department;
 
     public String getName() {
