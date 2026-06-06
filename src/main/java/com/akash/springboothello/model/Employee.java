@@ -1,8 +1,12 @@
 package com.akash.springboothello.model;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
-public class Employee {
+public class Employee implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
