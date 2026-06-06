@@ -1,4 +1,4 @@
-# Day 7 - Redis Caching with Spring Boot
+# Day 7 - Redis Caching with Spring Boot including Docker Setup defined in last section
 
 ## Objective
 
@@ -613,3 +613,69 @@ TTL
 ↓
 Automatic Cache Expiry
 ```
+# Docker Quick Notes
+
+## Why Docker?
+
+Used to run services without installing them directly on the machine.
+
+Examples:
+
+* Redis
+* PostgreSQL
+* Kafka
+* MongoDB
+* Ollama
+
+## Java Analogy
+
+```text
+Image     = Class
+Container = Object
+```
+
+## Commands
+
+Check Docker Version
+
+```bash
+docker --version
+```
+
+Show Running Containers
+
+```bash
+docker ps
+```
+
+Show All Containers
+
+```bash
+docker ps -a
+```
+
+Show Downloaded Images
+
+```bash
+docker images
+```
+
+Run Redis
+
+```bash
+docker run -d --name redis -p 6379:6379 redis
+```
+
+Access Redis CLI
+
+```bash
+docker exec -it redis redis-cli
+```
+
+## Learning
+
+Spring Boot Restart ≠ Redis Restart
+
+Redis runs independently inside a Docker container.
+
+Cache remains available even after Spring Boot application restart.
